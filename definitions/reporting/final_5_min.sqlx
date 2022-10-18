@@ -5,7 +5,7 @@ bigquery: {
   }
 
 SELECT
-  d.symbol
+  d.symbol,
   o.price AS open,
   c.price AS close,
   d.high as high,
