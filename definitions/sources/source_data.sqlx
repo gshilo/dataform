@@ -1,0 +1,7 @@
+config {
+  type: "declaration",
+  database: "dataform-demo-365207",
+  schema: "demo",
+  name: "raw_data",
+  description: "raw prices with timestamps"
+}

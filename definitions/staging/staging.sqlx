@@ -1,0 +1,7 @@
+config { type: "table",
+    assertions: {		
+		rowConditions: ['price > 0']
+	}
+	}
+
+SELECT parse_timestamp("%m-%d-%Y, %H:%M:%S", timestamp) as timestamp, symbol, price from ${ref("raw_data")}
