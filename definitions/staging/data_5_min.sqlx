@@ -1,5 +1,6 @@
 config {
-	type: "view"
+	type: "view",
+  dependencies: [ "staging_assertions_rowConditions" ]
 }
 SELECT
   symbol,
