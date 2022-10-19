@@ -1,6 +1,6 @@
 config {
 	type: "view",
-  dependencies: [ "staging_assertions_rowConditions" ]
+  dependencies: [ "dataform_staging_assertions_rowConditions" ]
 }
 SELECT
   symbol,
