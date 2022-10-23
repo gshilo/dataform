@@ -1,3 +1,0 @@
-config {"type": "view"}
-
-select price, timestamp from ${ref("staging")} where timestamp in (select close from ${ref("data_5_min")})
