@@ -1,0 +1,9 @@
+config {"type": "view"}
+
+SELECT
+  MAX(timestamp) AS end_period,
+  MIN(timestamp) AS start_period
+FROM
+  ${ref("staging")}
+WHERE
+  timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 MINUTE)
