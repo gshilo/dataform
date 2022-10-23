@@ -6,16 +6,9 @@ bigquery: {
 
 SELECT
   d.symbol,
-  o.price AS open,
-  c.price AS close,
-  d.high as high,
-  d.low as low,
-  d.open AS start_time,
-  d.close AS end_time
-FROM
-  ${ref("open")} as o,
-  ${ref("close")} as c,
-  ${ref("data_5_min")} as d
-WHERE
-  o.timestamp=d.open
-  AND c.timestamp=d.close
+  d.open,
+  d.close,
+  d.high,
+  d.low
+FROM  
+  ${ref("data_5_min")} d

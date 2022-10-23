@@ -4,11 +4,32 @@ config {
 }
 SELECT
   symbol,
-  MAX(staging.price) AS high,
-  MIN(staging.price) AS low,
-  (select price from staging where timestamp in (select start_period from ${ref("open_close")})) as open
-  (select price from staging where timestamp in (select end_period from ${ref("open_close")})) as close
-  ${ref("staging")} staging
+  MAX(price) AS high,
+  MIN(price) AS low,
+  (
+  SELECT
+    price
+  FROM
+    ${ref("staging")}
+  WHERE
+    timestamp IN (
+    SELECT
+      start_period
+    FROM
+      ${ref("open_close")})) AS open,
+  (
+  SELECT
+    price
+  FROM
+    ${ref("staging")}
+  WHERE
+    timestamp IN (
+    SELECT
+      end_period
+    FROM
+      ${ref("open_close")})) AS close,
+FROM
+  ${ref("staging")}
 WHERE
   timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 MINUTE)
 GROUP BY
