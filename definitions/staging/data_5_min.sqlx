@@ -4,6 +4,7 @@ config {
 }
 SELECT
   symbol,
+  min(timestamp) ts,
   MAX(price) AS high,
   MIN(price) AS low,
   (

@@ -1,14 +1,15 @@
 config {type: "table",
 bigquery: {
-    partitionBy: "DATETIME_TRUNC(start_time, HOUR)"
+    partitionBy: "DATETIME_TRUNC(ts, HOUR)"
   }
   }
 
 SELECT
-  d.symbol,
-  d.open,
-  d.close,
-  d.high,
-  d.low
+  symbol,
+  ts,
+  open,
+  close,
+  high,
+  low
 FROM  
   ${ref("data_5_min")} d
