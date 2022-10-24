@@ -1,4 +1,4 @@
-config {type: "table",
+config {type: "incremental",
 bigquery: {    
     partitionBy: "DATETIME_TRUNC(ts, HOUR)"
   }
