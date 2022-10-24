@@ -12,4 +12,4 @@ SELECT
   high,
   low
 FROM  
-  ${ref("data_5_min")} d
+  ${ref("data_5_min")}
