@@ -4,6 +4,8 @@ config {
 }
 SELECT
   symbol,
+  min(timestamp) as open_ts,
+  max(timestamp) as close_ts,
   min(timestamp) ts,
   MAX(price) AS high,
   MIN(price) AS low,
