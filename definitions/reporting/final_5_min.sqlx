@@ -1,4 +1,8 @@
-config {type: "table"}
+config {type: "table",
+bigquery: {    
+    partitionBy: "DATETIME_TRUNC(ts, HOUR)"
+  }
+  }
 
 SELECT
   symbol,
